@@ -168,20 +168,26 @@ class _RegistroInvitado extends State<RegistroInvitado> {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('Por favor llene todos los campos')));
     } else {
-      final response = await Supabase.instance.client
-          .from("evi_invitados")
-          .insert(
-          {
-            'inv_cedula': int.parse(_controllerCedula.text),
-            'inv_evento': widget.evento.id,
-            'inv_nombres': _controllerNombre.text,
-            'inv_correo': _controllerCorreo.text,
-            'inv_telefono': int.parse(_controllerTelefono.text),
-            'inv_asistenciaEvento': false
-          });
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Se inscrito al evento correctamente')));
-      Navigator.of(context).pushReplacementNamed("/home");
+      try{
+        await Supabase.instance.client
+            .from("evi_invitados")
+            .insert(
+            {
+              'inv_cedula': int.parse(_controllerCedula.text),
+              'inv_evento': widget.evento.id,
+              'inv_nombres': _controllerNombre.text,
+              'inv_correo': _controllerCorreo.text,
+              'inv_telefono': int.parse(_controllerTelefono.text),
+              'inv_asistenciaEvento': false
+            });
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Se inscrito al evento correctamente')));
+        Navigator.of(context).pushReplacementNamed("/home");
+      } catch(error) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Ocurrió un error al realizar el registro')));
+      }
+
     }
   }
 
