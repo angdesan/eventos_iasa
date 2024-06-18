@@ -1,13 +1,12 @@
 
 
 class Evento {
-  int codigo;
-  String cedula;
-  String nombres;
-  int telefono;
-  String correo;
-  bool asistenciaEvento;
+  String id;
+  String nombre;
+  String descripcion;
+  DateTime fecha;
+  String ubicacion;
 
-  Evento(this.codigo, this.cedula, this.nombres, this.telefono, this.correo,
-      this.asistenciaEvento);
+  Evento(this.id,this.nombre, this.descripcion, this.fecha, this.ubicacion);
+
 }
