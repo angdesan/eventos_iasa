@@ -33,8 +33,12 @@ class _EventosView extends State<EventosView> {
         backgroundColor: AppColors.background,
         elevation: 0,
         title: Text(
-          "Elegir Evento",
-          style: TextStyle(color: AppColors.text_light),
+          "Próximos Eventos",
+          style: TextStyle(
+            color: AppColors.text_light,
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),
         ),
       ),
       body: _body(),
@@ -59,40 +63,92 @@ class _EventosView extends State<EventosView> {
                 eventoConsulta['eve_descripcion'],
                 DateTime.parse(eventoConsulta['eve_fecha']),
                 eventoConsulta['eve_ubicacion']);
-            return Container(
-              margin: EdgeInsets.all(15),
-              padding: EdgeInsets.all(4),
-              decoration: BoxDecoration(color: Colors.grey.shade100),
-              child: ListTile(
-                title: Text(
-                  evento.nombre,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(evento.descripcion+"\n"+
-                    "Fecha: "+ evento.fecha.toUtc().toString()+"\n"+
-                    "Ubicacion: "+evento.ubicacion
-                ),
-                onTap: () =>{
-                  Navigator.of(context)
-                      .pushNamed("/evento",
-                      arguments: evento)
-                },
-                leading: Icon(
-                  Icons.event_available_rounded,
-                  color: AppColors.primaryColor,
-                ),
-                trailing: IconButton(
-                  onPressed: () =>{
+            return Card(
+              elevation: 4,
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                child: ListTile(
+                  title: Text(
+                    evento.nombre,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Colors.black87
+                    ),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        evento.descripcion,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black54
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Icon(Icons.date_range, color: Colors.grey, size: 16),
+                          SizedBox(width: 4),
+                          Expanded(
+                              child: Text(
+                                'Fecha: ${evento.fecha.toLocal().toString()}',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 4,),
+                      Row(
+                        children: [
+                          Icon(Icons.location_on, color: Colors.grey, size: 16),
+                          SizedBox(width: 4),
+                          Expanded(
+                              child: Text(
+                                'Ubicación: ${evento.ubicacion}',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  onTap: () =>{
                     Navigator.of(context)
                         .pushNamed("/evento",
-                    arguments: evento)
+                        arguments: evento)
                   },
-                  icon: Icon(
+                  leading: CircleAvatar(
+                    backgroundColor: AppColors.primaryColor.withOpacity(0.1),
+                    child: Icon(
+                      Icons.event_available_rounded,
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                  trailing: IconButton(
+                    onPressed: () =>{
+                      Navigator.of(context)
+                          .pushNamed("/evento",
+                          arguments: evento)
+                    },
+                    icon: Icon(
                       Icons.app_registration,
-                    color: AppColors.primaryColor,
+                      color: AppColors.primaryColor,
+                    ),
                   ),
                 ),
-              ),
+              )
             );
           },
         );
