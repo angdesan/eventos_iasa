@@ -1,5 +1,6 @@
 import 'package:eventos_iasa/models/evento.dart';
 import 'package:eventos_iasa/ui/views/home/home.dart';
+import 'package:eventos_iasa/ui/views/home/invitado_view.dart';
 import 'package:eventos_iasa/ui/views/home/registro_invitado.dart';
 import 'package:flutter/material.dart';
 import 'package:eventos_iasa/ui/views/Splash/splash.dart';
@@ -11,7 +12,10 @@ class Routes {
         return MaterialPageRoute(builder: (_) => SplashView());
       case '/home':
         return MaterialPageRoute(builder: (_) => HomeView() );
-      case '/evento':
+      case '/invitado':
+        Evento _evento = args as Evento;
+        return MaterialPageRoute(builder: (_)=> InvitadoView(_evento));
+      case '/registro':
         Evento _evento = args as Evento;
         return MaterialPageRoute(builder: (_)=> RegistroInvitado(_evento));
     default:

@@ -32,12 +32,15 @@ class _EventosView extends State<EventosView> {
         automaticallyImplyLeading: false,
         backgroundColor: AppColors.background,
         elevation: 0,
-        title: Text(
-          "Próximos Eventos",
-          style: TextStyle(
-            color: AppColors.text_light,
-            fontSize: 20,
-            fontWeight: FontWeight.bold
+        title: Padding(
+          padding: EdgeInsets.only(top: 26),
+          child: Text(
+            "Próximos Eventos",
+            style: TextStyle(
+                color: AppColors.text_light,
+                fontSize: 22,
+                fontWeight: FontWeight.bold
+            ),
           ),
         ),
       ),
@@ -126,7 +129,7 @@ class _EventosView extends State<EventosView> {
                   ),
                   onTap: () =>{
                     Navigator.of(context)
-                        .pushNamed("/evento",
+                        .pushNamed("/invitado",
                         arguments: evento)
                   },
                   leading: CircleAvatar(
@@ -139,7 +142,7 @@ class _EventosView extends State<EventosView> {
                   trailing: IconButton(
                     onPressed: () =>{
                       Navigator.of(context)
-                          .pushNamed("/evento",
+                          .pushNamed("/invitado",
                           arguments: evento)
                     },
                     icon: Icon(

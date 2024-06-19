@@ -52,7 +52,7 @@ class _RegistroInvitado extends State<RegistroInvitado> {
   Widget _body(){
     return SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(15.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -80,7 +80,7 @@ class _RegistroInvitado extends State<RegistroInvitado> {
                       hintText: "Ingrese su cedula",
                       labelText: "Cedula",
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0)
+                          borderRadius: BorderRadius.circular(8.0)
                       )
                   )
               ),
@@ -97,7 +97,7 @@ class _RegistroInvitado extends State<RegistroInvitado> {
                       hintText: "Ingrese su nombre",
                       labelText: "Nombre",
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0)
+                          borderRadius: BorderRadius.circular(8.0)
                       )
                   )
               ),
@@ -114,7 +114,7 @@ class _RegistroInvitado extends State<RegistroInvitado> {
                       hintText: "Ingrese su Correo",
                       labelText: "Correo",
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0)
+                          borderRadius: BorderRadius.circular(8.0)
                       )
                   )
               ),
@@ -131,7 +131,7 @@ class _RegistroInvitado extends State<RegistroInvitado> {
                       hintText: "Ingrese su numero de Telefono",
                       labelText: "Telefono",
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0)
+                          borderRadius: BorderRadius.circular(8.0)
                       )
                   )
               ),
@@ -140,7 +140,6 @@ class _RegistroInvitado extends State<RegistroInvitado> {
               ),
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(left: 100, right: 100),
                 child: ElevatedButton(
                   onPressed: () => {
                     _insertarInvitado()
@@ -151,7 +150,7 @@ class _RegistroInvitado extends State<RegistroInvitado> {
                       Colors.white),
                       backgroundColor: AppColors.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30))),
+                          borderRadius: BorderRadius.circular(8))),
                   child: Text("Registrar a Evento",style: TextStyle(color:
                   AppColors.text_dark),),
                 ),
