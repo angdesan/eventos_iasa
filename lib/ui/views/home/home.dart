@@ -1,5 +1,6 @@
 import 'package:eventos_iasa/constants/colors.dart';
 import 'package:eventos_iasa/ui/views/home/evento_view.dart';
+import 'package:eventos_iasa/ui/views/home/reporte.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 class HomeView extends StatefulWidget{
@@ -23,7 +24,7 @@ class _HomeView extends State<HomeView> {
       bottomNavigationBar: _bottomBar(),
       body: PageView(
         controller: _pageController,
-        children: [EventosView()],
+        children: [EventosView(),EventosView(), ReporteView()],
         onPageChanged: (int index){
           setState(() {
             _currentPage = index;
