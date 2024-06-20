@@ -14,12 +14,6 @@ class EventosView extends StatefulWidget {
 
 class _EventosView extends State<EventosView> {
   final _future = Supabase.instance.client.from('evi_Eventos').select();
-  String? _selectedOption;
-  int _currentStep = 0;
-  TextEditingController _cedula = TextEditingController();
-  TextEditingController _nombres = TextEditingController();
-  TextEditingController _correo = TextEditingController();
-  TextEditingController _telefono = TextEditingController();
   @override
   void initState() {
     super.initState();

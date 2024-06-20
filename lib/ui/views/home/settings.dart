@@ -119,7 +119,7 @@ class _Settings extends State<Settings> {
               margin: EdgeInsets.only(left: 8, right: 8),
               child: ElevatedButton(
                 onPressed: () =>
-                    Navigator.of(context).pushReplacementNamed("/login"),
+                    Navigator.of(context).pushReplacementNamed("/home"),
                 style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.only(top: 16, bottom: 16),
                     textStyle: TextStyle(fontSize: 16, color: Colors.white),
