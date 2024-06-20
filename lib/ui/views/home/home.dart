@@ -1,6 +1,7 @@
 import 'package:eventos_iasa/constants/colors.dart';
 import 'package:eventos_iasa/ui/views/home/evento_view.dart';
 import 'package:eventos_iasa/ui/views/home/reporte.dart';
+import 'package:eventos_iasa/ui/views/home/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 class HomeView extends StatefulWidget{
@@ -24,7 +25,7 @@ class _HomeView extends State<HomeView> {
       bottomNavigationBar: _bottomBar(),
       body: PageView(
         controller: _pageController,
-        children: [EventosView(),EventosView(), ReporteView()],
+        children: [Settings(),EventosView(), ReporteView()],
         onPageChanged: (int index){
           setState(() {
             _currentPage = index;
@@ -41,7 +42,7 @@ class _HomeView extends State<HomeView> {
       backgroundColor: AppColors.background,
       animationDuration: const Duration(milliseconds: 300),
       items: const <Widget>[
-        Icon(Icons.edit_calendar_outlined, size: 30, color:
+        Icon(Icons.settings, size: 30, color:
         AppColors.text_dark,),
         Icon(Icons.home, size: 30, color: AppColors.text_dark,),
         Icon(Icons.analytics_outlined, size: 30, color:

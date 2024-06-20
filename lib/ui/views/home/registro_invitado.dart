@@ -55,10 +55,8 @@ class _RegistroInvitado extends State<RegistroInvitado> {
           padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 20,
-              ),
               Text(
                   "Registro a Evento "+widget.evento.nombre,
                 style: TextStyle(
@@ -180,7 +178,7 @@ class _RegistroInvitado extends State<RegistroInvitado> {
               'inv_asistenciaEvento': false
             });
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Se inscrito al evento correctamente')));
+            .showSnackBar(SnackBar(content: Text('Se ha inscrito al evento correctamente')));
         Navigator.of(context).pushReplacementNamed("/home");
       } catch(error) {
         ScaffoldMessenger.of(context)

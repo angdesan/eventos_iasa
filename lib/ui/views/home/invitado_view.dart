@@ -18,7 +18,6 @@ class _InvitadoView extends State<InvitadoView> {
   List<dynamic> _consultaInvitados = [];
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _supabaseClient = Supabase.instance.client;
     _obtenerInvitados();
@@ -193,10 +192,10 @@ class _InvitadoView extends State<InvitadoView> {
                               _mostrarDialogoActualizar(invitado)
                             },
                             icon: Icon(
-                              Icons.check,
+                              Icons.pending_actions_outlined,
                               color: AppColors.primaryColor,
                             ),
-                          ): null,
+                          ): Icon(Icons.check),
                         ),
                       )
                   );

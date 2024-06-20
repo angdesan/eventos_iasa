@@ -68,7 +68,7 @@ class _EventosView extends State<EventosView> {
                 eventoConsulta['eve_ubicacion']);
             return Card(
               elevation: 4,
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              margin: EdgeInsets.symmetric(vertical: 16, horizontal: 15),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -157,17 +157,5 @@ class _EventosView extends State<EventosView> {
         );
       },
     );
-  }
-
-  void _insertarInvitado() async {
-    final response =
-        await Supabase.instance.client.from("evi_invitados").insert({
-      'inv_cedula': int.parse(_cedula.text),
-      'inv_evento': _selectedOption,
-      'inv_nombres': _nombres.text,
-      'inv_correo': _correo.text,
-      'inv_telefono': int.parse(_telefono.text),
-      'inv_asistenciaEvento': false
-    });
   }
 }
